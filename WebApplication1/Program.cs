@@ -1,3 +1,4 @@
+using Gestion.Core.Business;
 using Gestion.Core.Configuration;
 using Gestion.Core.Data;
 
@@ -18,6 +19,8 @@ builder.Services.AddScoped<Config>(p => {
 
 builder.Services.AddScoped<ProductoRepository>();
 builder.Services.AddScoped<OperacionesRepository>();
+builder.Services.AddScoped<ProductoBusiness>();
+builder.Services.AddScoped<OperacionesBusiness>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

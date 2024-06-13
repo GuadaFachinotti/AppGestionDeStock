@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Gestion.Core.Bussines\Gestion.Core.Business.csproj" />
     <ProjectReference Include="..\Gestion.Core.Configuration\Gestion.Core.Configuration.csproj" />
     <ProjectReference Include="..\Gestion.Core.Data\Gestion.Core.Data.csproj" />
   </ItemGroup>
