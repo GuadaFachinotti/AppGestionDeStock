@@ -2,10 +2,10 @@ using Gestion.Core.Business;
 using Gestion.Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers
+namespace WebApiGestion.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class ProductoController : ControllerBase
     {
         private readonly ProductoBusiness _productoBusiness;
@@ -27,7 +27,7 @@ namespace WebApi.Controllers
             return productos.Items;
         }
 
-        [HttpGet(Name = "GetStockProductosPorId")]
+        [HttpGet("{productoId}", Name = "GetStockProductosPorId")]
         public int GetStockProductosPorId(int productoId)
         {
             var stock = _operacionesBusiness.GetStockProducto(productoId);

@@ -1,8 +1,10 @@
+using Gestion.Core.Business;
 using Gestion.Core.Configuration;
 using Gestion.Core.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 var config = new Gestion.Core.Configuration.Config()
 {
     ConnectionString = builder.Configuration.GetConnectionString("GestionConnectionString")
@@ -17,10 +19,8 @@ builder.Services.AddScoped<Config>(p => {
 
 builder.Services.AddScoped<ProductoRepository>();
 builder.Services.AddScoped<OperacionesRepository>();
-
-
-// Add services to the container.
-
+builder.Services.AddScoped<ProductoBusiness>();
+builder.Services.AddScoped<OperacionesBusiness>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

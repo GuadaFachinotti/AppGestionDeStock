@@ -7,14 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.Entities\Gestion.Core.Entities.csproj" />
     <ProjectReference Include="..\Gestion.Core.Bussines\Gestion.Core.Business.csproj" />
-    <ProjectReference Include="..\Gestion.Core.Configuration\Gestion.Core.Configuration.csproj" />
-    <ProjectReference Include="..\Gestion.Core.Data\Gestion.Core.Data.csproj" />
   </ItemGroup>
 
 </Project>
