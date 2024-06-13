@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gestion.Core.Configuration\Gestion.Core.Configuration.csproj" />
+    <ProjectReference Include="..\Gestion.Core.Data\Gestion.Core.Data.csproj" />
+  </ItemGroup>
+
+</Project>
