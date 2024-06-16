@@ -1,6 +1,7 @@
 ﻿using Gestion.Core.Data;
 using Gestion.Core.Entities;
 using Gestion.Core.Entities.Result;
+using Gestion.Core.Entities.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace Gestion.Core.Business
     public class OperacionesBusiness
     {
         private readonly OperacionesRepository _operacionesRepository;
+        private readonly ProductoRepository _productoRepository;
 
-        public OperacionesBusiness(OperacionesRepository operacionesRepository)
+        public OperacionesBusiness(OperacionesRepository operacionesRepository, ProductoRepository productoRepository)
         {
             _operacionesRepository = operacionesRepository;
+            _productoRepository = productoRepository;
         }
 
         //--------------Compra-----------------------
@@ -50,8 +53,10 @@ namespace Gestion.Core.Business
             _operacionesRepository.BajaCompra(ventaId);
         }
 
-        public int GetStockProducto(int ProductoId)
+        public StockProductoVM GetStockProducto(int ProductoId)
         {
+            StockProductoVM stockProductoVM = new StockProductoVM();
+
             //todas las compras del producto
             var compras = GetAllCompras();
             var comprasFiltradas = compras.Items.FindAll(x => x.ProductoId == ProductoId);
@@ -64,11 +69,10 @@ namespace Gestion.Core.Business
 
             int cantidadVentas = ventasFiltradas.Sum(x => x.Cantidad);
 
-            int resultado = cantidadCompras - cantidadVentas;
+            stockProductoVM.Stock = cantidadCompras - cantidadVentas;            
+            stockProductoVM.Producto = _productoRepository.GetProductoById(ProductoId).Items.FirstOrDefault();
 
-
-
-            return resultado;
+            return stockProductoVM;
         }
 
     }

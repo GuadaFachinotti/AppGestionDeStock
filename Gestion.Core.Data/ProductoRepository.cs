@@ -43,7 +43,17 @@ namespace Gestion.Core.Data
 
             using (var db = new GestionContext(_config))
             {
-                var producto = db.Producto.FirstOrDefault(p => p.ProductoId == id);
+                var producto = db.Producto
+                                 .Include(p => p.Categoria)
+                                 .FirstOrDefault(p => p.ProductoId == id);
+
+                //Devuelve una lista con un solo producto por el FirstOrDefault
+                if (producto != null) 
+                {
+                    result.Items.Add(producto);
+                }
+                //Si no encuentra no agrega el producto a la lista y queda la lista de productos en 0
+                
             }
 
             return result;

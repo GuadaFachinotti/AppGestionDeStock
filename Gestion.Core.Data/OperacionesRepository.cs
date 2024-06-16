@@ -27,8 +27,8 @@ namespace Gestion.Core.Data
             using (var db = new GestionContext(_config))
             {
                 result.Items = db.Compra
-                    .Include(c => c.UsuarioId)
-                    .Include(c => c.ProductoId)
+                    .Include(c => c.Usuario)
+                    .Include(c => c.Producto)
 
                     .ToList();
                 result.HasError = false;
@@ -44,8 +44,8 @@ namespace Gestion.Core.Data
             using (var db = new GestionContext(_config))
             {
                 result.Items = db.Venta
-                    .Include(c => c.UsuarioId)
-                    .Include(c => c.ProductoId)
+                    .Include(c => c.Usuario)
+                    .Include(c => c.Producto)
 
                     .ToList();
                 result.HasError = false;

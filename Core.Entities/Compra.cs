@@ -14,8 +14,9 @@ namespace Gestion.Core.Entities
 
 
         public int UsuarioId { get; set; } //clave foranea
-        public int ProductoId { get; set; } // clave foranea
         public Usuario Usuario { get; set; } //Propiedad de navegacion, hace referencia al usuario
+
+        public int ProductoId { get; set; } // clave foranea
         public Producto Producto { get; set; } //Propiedad de navegacion, hace referencia al Producto
 
 

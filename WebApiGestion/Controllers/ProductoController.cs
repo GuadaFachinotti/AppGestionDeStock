@@ -1,5 +1,6 @@
 using Gestion.Core.Business;
 using Gestion.Core.Entities;
+using Gestion.Core.Entities.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApiGestion.Controllers
@@ -19,7 +20,7 @@ namespace WebApiGestion.Controllers
             _operacionesBusiness = operacionesBusiness;
         }
 
-        [HttpGet(Name = "GetProductos")]
+        [HttpGet("GetProductos")]
         public IEnumerable<Producto> GetProductos()
         {
             var productos = _productoBusiness.GetAll();
@@ -27,12 +28,12 @@ namespace WebApiGestion.Controllers
             return productos.Items;
         }
 
-        [HttpGet("{productoId}", Name = "GetStockProductosPorId")]
-        public int GetStockProductosPorId(int productoId)
+        [HttpGet("GetStockProductoPorId/{productoId}")]
+        public StockProductoVM GetStockProductoPorId(int productoId)
         {
-            var stock = _operacionesBusiness.GetStockProducto(productoId);
+            var resultVM = _operacionesBusiness.GetStockProducto(productoId);
 
-            return stock;
+            return resultVM;
         }
     }
 }

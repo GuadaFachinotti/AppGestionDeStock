@@ -1,6 +1,6 @@
 @WebApiGestion_HostAddress = http://localhost:5202
 
-GET {{WebApiGestion_HostAddress}}/weatherforecast/
+GET {{WebApiGestion_HostAddress}}/Producto/
 Accept: application/json
 
 ###
