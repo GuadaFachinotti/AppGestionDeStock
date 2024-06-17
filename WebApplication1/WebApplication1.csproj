@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Gestion.Core.Bussines\Gestion.Core.Business.csproj" />
     <ProjectReference Include="..\Gestion.Core.Configuration\Gestion.Core.Configuration.csproj" />
     <ProjectReference Include="..\Gestion.Core.Data\Gestion.Core.Data.csproj" />

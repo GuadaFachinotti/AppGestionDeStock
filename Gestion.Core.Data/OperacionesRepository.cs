@@ -36,6 +36,17 @@ namespace Gestion.Core.Data
 
             return result;
         }
+        public List<Usuario> GetAllUsuarios()
+        {
+            var result = new List<Usuario>();
+
+            using (var db = new GestionContext(_config))
+            {
+                result = db.Usuario.ToList();
+            }
+
+            return result;
+        }
 
         public VentaResult GetAllVentas()
         {

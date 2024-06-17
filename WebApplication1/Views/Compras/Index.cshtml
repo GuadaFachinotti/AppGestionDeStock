@@ -1,0 +1,55 @@
+﻿@using Gestion.Core.Entities
+@model List<Compra>
+
+@{
+    ViewData["Title"] = "Lista de Compras";
+}
+
+<h1>Lista de Compras</h1>
+
+<p>
+    <a asp-action="AgregarCompra">Agregar Compra</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                CompraId
+            </th>
+            <th>
+               Fecha
+            </th>
+            <th>
+                Producto
+            </th>
+            <th>
+                Cantidad
+            </th>
+            <th>
+                Usuario
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.CompraId
+            </td>
+            <td>
+                @item.Fecha.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @item.Producto.Nombre
+            </td>
+            <td>
+                @item.Cantidad
+            </td>
+            <td>
+                @item.Usuario.Nombre
+            </td>
+        
+        </tr>
+}
+    </tbody>
+</table>

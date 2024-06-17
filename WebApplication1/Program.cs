@@ -1,10 +1,15 @@
 using Gestion.Core.Business;
 using Gestion.Core.Configuration;
 using Gestion.Core.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using WebApplication1.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<WebApplication1Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("WebApplication1Context") ?? throw new InvalidOperationException("Connection string 'WebApplication1Context' not found.")));
 
-// se está configurando un servicio en una aplicación ASP.NET Core.
+// se est? configurando un servicio en una aplicaci?n ASP.NET Core.
 var config = new Gestion.Core.Configuration.Config()
 {
     ConnectionString = builder.Configuration.GetConnectionString("GestionConnectionString")
@@ -14,8 +19,8 @@ builder.Services.AddScoped<Config>(p => {
     return config;
 });
 
-//se está registrando dos servicios en el contenedor de inyección de dependencias
-//de una aplicación ASP.NET Core.
+//se est? registrando dos servicios en el contenedor de inyecci?n de dependencias
+//de una aplicaci?n ASP.NET Core.
 
 builder.Services.AddScoped<ProductoRepository>();
 builder.Services.AddScoped<OperacionesRepository>();
