@@ -43,7 +43,7 @@ namespace WinFormsGestion
         {
             var producto = new Producto();
             var productoExistente = _productoBusiness.GetAll().Items;
-            bool existeNombre = productoExistente.Any(x=> x.Nombre == txtNombre.Text);
+            bool existeNombre = productoExistente.Any(x => x.Nombre == txtNombre.Text);
 
             if (!existeNombre)
             {
@@ -56,13 +56,11 @@ namespace WinFormsGestion
                 DataGridViewForm1.DataSource = _productoBusiness.GetAll().Items;
                 this.Close();
             }
-            else 
+            else
             {
                 MostrarErrorPor3Segundos("Ya existe un producto con el mismo nombre");
             }
 
-
-          
         }
 
         public void CargarDatos(DataGridView dataGridViewForm1)
@@ -75,12 +73,14 @@ namespace WinFormsGestion
         {
             // Establece el texto del Label
             lblMsjError.Text = mensaje;
+            lblMsjError.Visible = true;
 
             // Espera 3 segundos
             await Task.Delay(3000);
 
             // Limpia el texto del Label después de 3 segundos
             lblMsjError.Text = "";
+            lblMsjError.Visible = false;
         }
     }
 }

@@ -25,6 +25,8 @@ namespace WinFormsGestion
             dataGridView1.MultiSelect = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Columns["Categoria"].Visible = false;
+            dataGridView1.Columns["CategoriaId"].Visible = false;
+            dataGridView1.Columns["Habilitado"].Visible = false;
             dataGridView1.Columns["NombreCategoria"].HeaderText = "Categoria";
 
 
@@ -40,12 +42,14 @@ namespace WinFormsGestion
         {
             // Establece el texto del Label
             labelErrorForm1.Text = mensaje;
+            labelErrorForm1.Visible = true;
 
             // Espera 3 segundos
             await Task.Delay(3000);
 
             // Limpia el texto del Label después de 3 segundos
             labelErrorForm1.Text = "";
+            labelErrorForm1.Visible = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -110,5 +114,34 @@ namespace WinFormsGestion
             form2.CargarDatos(dataGridView1);
             form2.Show();
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                //row va a ser nuestra fila seleccionada
+                var row = dataGridView1.SelectedRows[0];
+
+                var productoSeleccionado = (Producto)row.DataBoundItem;
+
+
+
+                //VERIFICA SI EXISTE UN FORM3 ABIERTO Y LO CIERRA
+                Form3 existingForm3 = Application.OpenForms.OfType<Form3>().FirstOrDefault();
+                if (existingForm3 != null)
+                {
+                    // Cerrar la instancia existente de Form3
+                    existingForm3.Close();
+                }
+                var form3 = Program.ServiceProvider.GetRequiredService<Form3>();
+                form3.CargarDatos(dataGridView1, productoSeleccionado);
+                form3.Show();
+
+            }
+
+
+        }
+
+
     }
 }

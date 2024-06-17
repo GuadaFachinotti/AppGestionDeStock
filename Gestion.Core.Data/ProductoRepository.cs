@@ -130,6 +130,7 @@ namespace Gestion.Core.Data
                     // Actualizar las propiedades del producto con los nuevos valores
                     producto.Nombre = productoActualizado.Nombre;
                     producto.CategoriaId = productoActualizado.CategoriaId;
+                    producto.Habilitado = productoActualizado.Habilitado;
 
                     // Marcar la entidad como modificada
                     db.Entry(producto).State = EntityState.Modified;

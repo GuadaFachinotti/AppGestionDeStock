@@ -46,12 +46,12 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(23, 233);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(637, 243);
+            dataGridView1.Size = new Size(365, 243);
             dataGridView1.TabIndex = 0;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(679, 258);
+            btnAgregar.Location = new Point(441, 267);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 1;
@@ -61,16 +61,17 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(679, 311);
+            btnModificar.Location = new Point(441, 320);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(75, 23);
             btnModificar.TabIndex = 2;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(679, 364);
+            btnEliminar.Location = new Point(441, 373);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 3;
@@ -87,6 +88,7 @@
             labelErrorForm1.Size = new Size(105, 15);
             labelErrorForm1.TabIndex = 4;
             labelErrorForm1.Text = "Muestra de errores";
+            labelErrorForm1.Visible = false;
             // 
             // label1
             // 
@@ -103,7 +105,7 @@
             label2.AutoSize = true;
             label2.BorderStyle = BorderStyle.Fixed3D;
             label2.Font = new Font("Broadway", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(228, 23);
+            label2.Location = new Point(143, 30);
             label2.Name = "label2";
             label2.Size = new Size(312, 38);
             label2.TabIndex = 6;
@@ -142,7 +144,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 594);
+            ClientSize = new Size(598, 594);
             Controls.Add(btnBuscar);
             Controls.Add(lblFiltrarCategoria);
             Controls.Add(cBoxFiltrado);

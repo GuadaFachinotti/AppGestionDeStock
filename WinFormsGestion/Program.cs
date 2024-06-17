@@ -49,6 +49,7 @@ namespace WinFormsGestion
                     services.AddTransient<OperacionesRepository>();
                     services.AddTransient<Form1>();
                     services.AddTransient<Form2>();
+                    services.AddTransient<Form3>();
                 });
         }
     }
