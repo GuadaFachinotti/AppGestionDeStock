@@ -37,6 +37,30 @@ namespace Gestion.Core.Business
         {
             _productoRepository.ModificarProducto(productoActualizado);
         }
+
+        public List<Categoria> GetAllCategoria()
+        {
+           return _productoRepository.GetAllCategoria();
+        }
+
+        public List<Categoria> CategoriaCBox() 
+        {
+            var list = GetAllCategoria();
+            var CategoriaTodos = new Categoria();
+            CategoriaTodos.CategoriaId = 0;
+            CategoriaTodos.Nombre = "Todos";
+
+            list.Add(CategoriaTodos);
+
+            return list.OrderBy(x=>x.CategoriaId).ToList();
+
+        }
+
+        public void EliminarProducto(int productoId) 
+        {
+            _productoRepository.EliminarProducto(productoId);
+        }
+
     }
 
 }

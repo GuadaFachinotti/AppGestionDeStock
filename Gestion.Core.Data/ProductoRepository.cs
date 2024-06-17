@@ -58,21 +58,34 @@ namespace Gestion.Core.Data
 
             return result;
         }
-
-
-        //Método Obtener las Categorías por Id
-        public ProductoResult GetAllCategoria(int id)
+        //Metodo de Obtener todas las categorias
+        public List<Categoria> GetAllCategoria()
         {
-            var result = new ProductoResult();
+            var result = new List<Categoria>();
 
             using (var db = new GestionContext(_config))
             {
-                var categoria = db.Categoria.FirstOrDefault(p => p.CategoriaId == id);
+                result = db.Categoria.ToList();
             }
 
             return result;
 
         }
+
+        //Método Obtener las Categorías por Id
+        public Categoria GetCategoriaPorId(int id)
+        {
+            var result = new Categoria();
+
+            using (var db = new GestionContext(_config))
+            {
+                result = db.Categoria.FirstOrDefault(p => p.CategoriaId == id);
+            }
+
+            return result;
+
+        }
+
 
         public void AltaProducto(Producto producto)
         {
@@ -125,6 +138,21 @@ namespace Gestion.Core.Data
                     db.SaveChanges();
                 }
             }
+        }
+
+        public void EliminarProducto (int productoId) 
+        {
+            using (var db = new GestionContext(_config))
+            {
+                var producto = db.Producto.Find(productoId);
+                if (producto != null) 
+                {
+                    db.Producto.Remove(producto);
+                    db.SaveChanges();
+                }
+                
+            }
+
         }
     }
 }

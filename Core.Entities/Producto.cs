@@ -14,5 +14,10 @@ namespace Gestion.Core.Entities
 
         public int CategoriaId { get; set; }
         public Categoria Categoria { get; set; } //Propiedad de navegación, hace referencia a la Categoría
+
+        public string NombreCategoria 
+        {
+            get { return Categoria.Nombre; }
+        }
     }
 }
