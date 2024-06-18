@@ -1,23 +1,23 @@
 ﻿@using Gestion.Core.Entities
-@model List<Compra>
+@model List<Venta>
 
 @{
-    ViewData["Title"] = "Lista de Compras";
+    ViewData["Title"] = "Lista de Ventas";
 }
 
-<h1>Lista de Compras</h1>
+<h1>Lista de Ventas</h1>
 
 <p>
-    <a asp-action="AgregarCompra" class="btn btn-primary">Agregar Compra</a>
+    <a asp-action="AgregarVenta" class="btn btn-primary">Agregar Venta</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                CompraId
+                VentaId
             </th>
             <th>
-               Fecha
+                Fecha
             </th>
             <th>
                 Producto
@@ -28,13 +28,14 @@
             <th>
                 Usuario
             </th>
+           
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @item.CompraId
+                @item.VentaId
             </td>
             <td>
                 @item.Fecha.ToString("dd/MM/yyyy")
@@ -48,7 +49,7 @@
             <td>
                 @item.Usuario.Nombre
             </td>
-        
+           
         </tr>
 }
     </tbody>

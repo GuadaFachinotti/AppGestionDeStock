@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Gestion.Core.Entities;
-using WebApplication1.Data;
 using Gestion.Core.Business;
 
 namespace WebApplication1.Controllers

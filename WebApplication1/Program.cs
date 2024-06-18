@@ -3,11 +3,10 @@ using Gestion.Core.Configuration;
 using Gestion.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using WebApplication1.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<WebApplication1Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("WebApplication1Context") ?? throw new InvalidOperationException("Connection string 'WebApplication1Context' not found.")));
+
 
 // se est? configurando un servicio en una aplicaci?n ASP.NET Core.
 var config = new Gestion.Core.Configuration.Config()
@@ -46,6 +45,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+
 
 app.MapControllerRoute(
     name: "default",

@@ -1,22 +1,18 @@
 ﻿@using Gestion.Core.Entities
-@model Compra
+@model Venta
 
 @{
-    ViewData["Title"] = "Alta Compra";
+    ViewData["Title"] = "Alta Venta";
 }
 
-<h1>Agregar Nueva Compra</h1>
+<h1>Agregar Nueva Venta</h1>
 
-<h4>Compra</h4>
+<h4>Venta</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="GuardarCompra">
-            <div class="form-group">
-                <label asp-for="Fecha" class="control-label"></label>
-                <input asp-for="Fecha" class="form-control" />
-                <span asp-validation-for="Fecha" class="text-danger"></span>
-            </div>
+        <form asp-action="GuardarVenta">
+            
             <div class="form-group">
                 <label asp-for="Cantidad" class="control-label"></label>
                 <input asp-for="Cantidad" class="form-control" type="number" min="0" />
@@ -42,9 +38,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Volver a la Lista de Compras</a>
+    <a asp-action="Index">Volver a la Lista de Ventas</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
