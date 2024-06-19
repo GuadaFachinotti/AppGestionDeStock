@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Gestion.Core.Entities;
 using Gestion.Core.Business;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class ComprasController : Controller
     {
         private readonly ProductoBusiness _productoBusiness;
@@ -44,8 +47,9 @@ namespace WebApplication1.Controllers
             var Fechas7DiasAtras = (DateTime.Now).AddDays(-7);
 
             if (compra.Fecha > Fechas7DiasAtras && compra.Fecha <= DateTime.Now)
-            {
-                compra.UsuarioId = 3;
+            {               
+
+                compra.UsuarioId = Int32.Parse(User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value);
                 _operacionesBusiness.AltaCompra(compra);
                 return RedirectToAction(nameof(Index));
             }

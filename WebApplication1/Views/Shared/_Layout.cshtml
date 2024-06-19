@@ -29,6 +29,17 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Ventas" asp-action="Index">Ventas</a>
                         </li>
                     </ul>
+                    <span class="navbar-text">
+    
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <text>Bienvenido, @User.Identity.Name | </text>
+                        <form asp-controller="Account" asp-action="Logout" style="display: inline;" method="post" class="form-inline">
+                            <button type="submit" class="btn btn-sm btn-primary ">Cerrar sesión</button>
+                        </form>
+                    }
+    
+</span>
                 </div>
             </div>
         </nav>
@@ -41,7 +52,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - WebApplication1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - MiauMart - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

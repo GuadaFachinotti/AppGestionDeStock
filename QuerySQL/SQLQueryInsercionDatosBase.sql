@@ -38,14 +38,7 @@
 --INSERT [dbo].[Producto] ([Nombre], [CategoriaId], [Habilitado] ) 
 --VALUES ('Perfumina Poett', 4, 1)
 
---INSERT [dbo].[Usuario] ([Nombre], [Hash], [Salt] ) 
---VALUES ('Benito', 'asdasd', 'dfdfdfdf')
-
---INSERT [dbo].[Usuario] ([Nombre], [Hash], [Salt] ) 
---VALUES ('Lara', 'asdasd2', 'dfdfdfdf2')
-
---INSERT [dbo].[Usuario] ([Nombre], [Hash], [Salt] ) 
---VALUES ('Sabrina', 'asdasd3', 'dfdfdfdf3')
+--La contraseña para ambos casos es 123456
 
 --bebidas
 INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 

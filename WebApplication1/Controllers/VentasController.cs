@@ -1,10 +1,13 @@
 ﻿using Gestion.Core.Business;
 using Gestion.Core.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class VentasController : Controller
     {
         private readonly ProductoBusiness _productoBusiness;
@@ -39,7 +42,7 @@ namespace WebApplication1.Controllers
 
             if (venta.Cantidad <= stock)
             {
-                venta.UsuarioId = 3;
+                venta.UsuarioId = Int32.Parse(User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value);
                 venta.Fecha = DateTime.Now;
                 _operacionesBusiness.AltaVenta(venta);
                 return RedirectToAction(nameof(Index));
