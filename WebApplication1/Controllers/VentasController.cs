@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -21,10 +22,15 @@ namespace WebApplication1.Controllers
         }
 
         //Get:Ventas
-        public IActionResult Index()
+        public IActionResult Index(int numeroPagina = 1, int tamanoPagina = 10)
         {
-            var listaVentas = _operacionesBusiness.GetAllVentas().Items;
-            return View(listaVentas);
+            var listaVentas = _operacionesBusiness.GetAllVentasPaginado(numeroPagina, tamanoPagina);
+            var ventaViewModel = new VentaPaginadoVM();
+            ventaViewModel.Items = listaVentas.Items;
+            ventaViewModel.TotalElementos = listaVentas.TotalElementos;
+            ventaViewModel.NumeroPagina = numeroPagina;
+            ventaViewModel.TamanoPagina = tamanoPagina;
+            return View(ventaViewModel);
         }
 
         public IActionResult AgregarVenta()

@@ -13,6 +13,7 @@ namespace Gestion.Core.Entities.Result
         public CompraResult()
         {
             Items = new List<Compra>();
+
         }
     }
 }

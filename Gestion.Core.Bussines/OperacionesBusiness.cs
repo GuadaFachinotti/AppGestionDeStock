@@ -26,6 +26,10 @@ namespace Gestion.Core.Business
         {
             return _operacionesRepository.GetAllCompras();
         }
+        public CompraResult GetAllComprasPaginado(int numeroPagina, int tamanoPagina)
+        {
+            return _operacionesRepository.GetAllComprasPaginado(numeroPagina, tamanoPagina);
+        }
 
         public void AltaCompra(Compra compra)
         {
@@ -41,6 +45,10 @@ namespace Gestion.Core.Business
         public VentaResult GetAllVentas()
         {
             return _operacionesRepository.GetAllVentas();
+        }
+        public VentaResult GetAllVentasPaginado(int numeroPagina, int tamanoPagina)
+        {
+            return _operacionesRepository.GetAllVentasPaginado(numeroPagina, tamanoPagina);
         }
 
         public void AltaVenta(Venta venta)

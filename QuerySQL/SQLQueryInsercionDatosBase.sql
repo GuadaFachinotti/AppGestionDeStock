@@ -38,65 +38,72 @@
 --INSERT [dbo].[Producto] ([Nombre], [CategoriaId], [Habilitado] ) 
 --VALUES ('Perfumina Poett', 4, 1)
 
+
+--bebidas
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240610', 1, 5, 1)
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240610', 2, 3, 1)
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240610', 3, 3, 1)
+----Comestibles
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240610', 4, 10, 2)
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240610', 5, 8, 2)
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240610', 6, 6, 2)
+----Lacteos
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240611', 7, 10, 3)
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240611', 8, 5, 3)
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240611', 9, 7, 3)
+
+----Art Limpieza
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240611', 10, 10, 3)
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240611', 11, 12, 3)
+--INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240611', 12, 16, 3)
+
+----Ventas----------------------------------------------------
+----bebidas
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240612', 1, 2, 1)
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240612', 2, 1, 1)
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240612', 3, 1, 1)
+----Comestibles
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240612', 4, 7, 2)
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240612', 5, 8, 2)
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240612', 6, 3, 2)
+----Lacteos
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240612', 7, 8, 3)
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240612', 8, 2, 3)
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240612', 9, 3, 3)
+
+----Art Limpieza
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240611', 10, 4, 3)
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240611', 11, 1, 3)
+--INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
+--VALUES ('20240611', 12, 2, 3)
+
+--Usuarios-------
+--INSERT [dbo].[Usuario] ([Nombre], [Hash], [Salt]) 
+--VALUES ('Benito', 'ehFIGyNPE0s0eT+Yp/YpfJf4U0q/f6kPTaKZgRhaDYU=', '1a2nVP0mK8r03EEorecCNA==')
+--INSERT [dbo].[Usuario] ([Nombre], [Hash], [Salt]) 
+--VALUES ('Cenizo', 'Tzlb1CPkEmvTb8IW9QrTt9B486cpBjT/LYgvCLI7PyY=', 'KT+YijEUNIpxX4JZ+KYYHQ==')
 --La contraseña para ambos casos es 123456
 
---bebidas
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240610', 1, 5, 1)
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240610', 2, 3, 1)
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240610', 3, 3, 1)
---Comestibles
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240610', 4, 10, 2)
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240610', 5, 8, 2)
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240610', 6, 6, 2)
---Lacteos
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240611', 7, 10, 3)
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240611', 8, 5, 3)
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240611', 9, 7, 3)
-
---Art Limpieza
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240611', 10, 10, 3)
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240611', 11, 12, 3)
-INSERT [dbo].[Compra] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240611', 12, 16, 3)
-
---Ventas----------------------------------------------------
---bebidas
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240612', 1, 2, 1)
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240612', 2, 1, 1)
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240612', 3, 1, 1)
---Comestibles
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240612', 4, 7, 2)
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240612', 5, 8, 2)
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240612', 6, 3, 2)
---Lacteos
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240612', 7, 8, 3)
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240612', 8, 2, 3)
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240612', 9, 3, 3)
-
---Art Limpieza
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240611', 10, 4, 3)
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240611', 11, 1, 3)
-INSERT [dbo].[Venta] ([Fecha], [ProductoId], [Cantidad], [UsuarioId]) 
-VALUES ('20240611', 12, 2, 3)

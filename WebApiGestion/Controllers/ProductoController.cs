@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApiGestion.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ProductoController : ControllerBase
     {
         private readonly ProductoBusiness _productoBusiness;

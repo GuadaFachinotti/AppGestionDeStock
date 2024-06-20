@@ -25,7 +25,7 @@ builder.Services.AddScoped<Config>(p => {
     return config;
 });
 
-//se está registrando dos servicios en el contenedor de inyección de dependencias
+//se está registrando seis servicios en el contenedor de inyección de dependencias
 //de una aplicación ASP.NET Core.
 
 builder.Services.AddScoped<ProductoRepository>();

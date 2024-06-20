@@ -9,6 +9,7 @@ using Gestion.Core.Entities;
 using Gestion.Core.Business;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -26,10 +27,20 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Compras
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int numeroPagina=1, int tamanoPagina=10)
         {
-            var listaCompras = _operacionesBusiness.GetAllCompras();
-            return View(listaCompras.Items);
+            //en listaCompras se guarda Items(todas las compras de la pagina actual) y TotalElementos (Todas las compras en la base)
+            var listaCompras = _operacionesBusiness.GetAllComprasPaginado(numeroPagina, tamanoPagina);
+
+            var compraViewModel = new CompraPaginadoVM();
+            compraViewModel.Items = listaCompras.Items;
+            compraViewModel.TotalElementos = listaCompras.TotalElementos;
+            compraViewModel.NumeroPagina = numeroPagina;
+            compraViewModel.TamanoPagina = tamanoPagina;
+           
+           
+
+            return View(compraViewModel);
         }
 
         // GET: Compras/AgregarCompra

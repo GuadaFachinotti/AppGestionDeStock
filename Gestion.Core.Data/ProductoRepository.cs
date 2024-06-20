@@ -86,7 +86,6 @@ namespace Gestion.Core.Data
 
         }
 
-
         public void AltaProducto(Producto producto)
         {
             using (var db = new GestionContext(_config))

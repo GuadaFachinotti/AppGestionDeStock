@@ -1,6 +1,7 @@
 using Gestion.Core.Business;
 using Gestion.Core.Entities;
 using Microsoft.Extensions.DependencyInjection;
+using System.Windows.Forms;
 
 namespace WinFormsGestion
 {
@@ -15,6 +16,7 @@ namespace WinFormsGestion
             _operacionesBusiness = operacionesBusiness;
             InitializeComponent();
             InitControl();
+            CambiarColorFilas();
 
         }
 
@@ -142,6 +144,25 @@ namespace WinFormsGestion
 
         }
 
+        private void CambiarColorFilas()
+        {
+            dataGridView1.RowPrePaint += (sender, e) =>
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                Producto producto = row.DataBoundItem as Producto;
 
+                if (producto != null)
+                {
+                    if (!producto.Habilitado)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.IndianRed; // Cambia el color a rojo si no está habilitado
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightGreen; // Cambia el color a verde si está habilitado
+                    }
+                }
+            };
+        }
     }
 }

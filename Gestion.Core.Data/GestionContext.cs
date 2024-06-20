@@ -7,21 +7,28 @@ namespace Gestion.Core.Data
     internal class GestionContext : DbContext
 
     {
+        // Se declara una variable de solo lectura de tipo Config.
+        // Esta variable contendrá la configuración necesaria para la conexión a la base de datos.
         private readonly Config _config;
 
+        // Constructor de la clase GestionContext que recibe un objeto de tipo Config.
+        // Asigna el objeto de configuración a la variable privada _config.
         public GestionContext(Config config)
         {
             _config = config;
         }
 
 
-
+        // Se define un DbSet para cada entidad que se desea mapear a una tabla de la base de datos.
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Producto> Producto { get; set; }
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Compra> Compra { get; set; }
         public DbSet<Venta> Venta { get; set; }
 
+
+        //Se sobrescribe el método OnConfiguring para configurar el contexto de la base de datos.
+        //Se Usa el método UseSqlServer del objeto optionsBuilder para especificar la cadena de conexión.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_config.ConnectionString);

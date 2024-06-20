@@ -10,5 +10,7 @@ namespace Gestion.Core.Entities.Result
     {
         public string Message { get; set; }
         public bool HasError { get; set; }
+        public int TotalElementos { get; set; }
+
     }
 }

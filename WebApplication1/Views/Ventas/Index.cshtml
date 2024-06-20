@@ -1,5 +1,5 @@
 ﻿@using Gestion.Core.Entities
-@model List<Venta>
+@model VentaPaginadoVM
 
 @{
     ViewData["Title"] = "Lista de Ventas";
@@ -32,7 +32,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Items) {
         <tr>
             <td>
                 @item.VentaId
@@ -54,3 +54,19 @@
 }
     </tbody>
 </table>
+
+<div>
+    Página @Model.NumeroPagina de @Model.TotalPaginas
+
+    @* Si el num de paginas es mayor a 1 se muestra el boton Anterior *@
+    @if (Model.NumeroPagina > 1)
+    {
+        <a asp-action="Index" asp-route-numeroPagina="@(Model.NumeroPagina - 1)" asp-route-tamanoPagina="@Model.TamanoPagina">Anterior</a>
+    }
+
+    @* Si el num de paginas es menor al Total de paginas se muestra el boton Siguiente *@
+    @if (Model.NumeroPagina < Model.TotalPaginas)
+    {
+        <a asp-action="Index" asp-route-numeroPagina="@(Model.NumeroPagina + 1)" asp-route-tamanoPagina="@Model.TamanoPagina">Siguiente</a>
+    }
+</div>
