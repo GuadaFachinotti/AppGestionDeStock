@@ -38,7 +38,7 @@ namespace Gestion.Core.Data
   
          El método OnModelCreating y las configuraciones dentro de él son utilizados para configurar el modelo de datos 
          cuando se está creando el contexto de base de datos. 
-         La configuración específica que has mencionado define explícitamente la relación entre las entidades Bueno y Jedi.
+         La configuración específica que has mencionado define explícitamente la relación entre las entidades Venta y producto.
           modelBuilder.Entity<Venta>(): Esto especifica que estás configurando la entidad Venta.
 
          .HasOne(v => v.Producto): Esto define que la entidad Venta tiene una relación uno-a-uno o uno-a-muchos con la entidad Producto. 
