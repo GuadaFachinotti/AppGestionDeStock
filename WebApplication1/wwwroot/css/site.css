@@ -20,3 +20,23 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+body {
+    background-image: url('../images/cute-cat-footprint-pattern.jpg'); /* Ruta de la imagen de las patitas de gato */
+    background-size: cover;
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-style: dashed;
+    border-color: burlywood;
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+}
+
+.navbararriba {
+    background-image: url(https://i.pinimg.com/564x/82/b9/85/82b9854be599fa6427a66a015a5cff40.jpg);
+    font-weight: bold;
+    background-size: 350px;
+    background-position: center;
+}
