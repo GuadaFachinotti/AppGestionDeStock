@@ -31,6 +31,13 @@ namespace Gestion.Core.Data
             return result;
         }
 
-
+        public void AltaUsuario(Usuario usuario)
+        {
+            using (var db = new GestionContext(_config))
+            {
+                db.Usuario.Add(usuario);
+                db.SaveChanges();
+            }
+        }
     }
 }

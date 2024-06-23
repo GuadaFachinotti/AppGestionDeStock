@@ -23,5 +23,10 @@ namespace Gestion.Core.Business
             return _usuarioRepository.GetAllUsuarios();
         }
 
+        public void AltaUsuario(Usuario usuario)
+        {
+            _usuarioRepository.AltaUsuario(usuario);
+        }
+
     }
 }

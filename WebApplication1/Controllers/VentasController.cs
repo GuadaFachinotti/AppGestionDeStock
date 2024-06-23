@@ -41,7 +41,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        // POST: Compras/GuardarVenta
+        // POST: Ventas/GuardarVenta
         [HttpPost]
         public async Task<IActionResult> GuardarVenta([Bind("Cantidad,ProductoId")] Venta venta)
         {

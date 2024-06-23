@@ -4,6 +4,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Security.Cryptography;
 using System.Text;
 using Gestion.Core.Entities;
+using Gestion.Core.Business;
 
 namespace WebApiGestion.Controllers
 {
@@ -11,7 +12,12 @@ namespace WebApiGestion.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        
+        private readonly UsuarioBusiness _usuarioBusiness;
+        public UsuarioController(UsuarioBusiness usuarioBusiness,
+                                   OperacionesBusiness operacionesBusiness)
+        {
+            _usuarioBusiness = usuarioBusiness;
+        }
         [HttpGet("GenerarUsuario/{nombreUsuario}/{password}")]
         //Esta funcion recibe como parametro nombreUsuario y password y devuelve un Hash y Salt validos para ese password
         public Usuario GenerarUsuario(string nombreUsuario, string password)
@@ -26,6 +32,7 @@ namespace WebApiGestion.Controllers
             var (hash, salt) = GenerarPasswordHash(password);
             result.Hash = hash;
             result.Salt = salt;
+            _usuarioBusiness.AltaUsuario(result);
 
             return result ;
         }

@@ -21,6 +21,8 @@ builder.Services.AddScoped<ProductoRepository>();
 builder.Services.AddScoped<OperacionesRepository>();
 builder.Services.AddScoped<ProductoBusiness>();
 builder.Services.AddScoped<OperacionesBusiness>();
+builder.Services.AddScoped<UsuarioBusiness>();
+builder.Services.AddScoped<UsuarioRepository>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
