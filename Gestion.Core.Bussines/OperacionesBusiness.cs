@@ -64,23 +64,30 @@ namespace Gestion.Core.Business
         public StockProductoVM GetStockProducto(int ProductoId)
         {
             StockProductoVM stockProductoVM = new StockProductoVM();
-
-            //todas las compras del producto
-            var compras = GetAllCompras();
-            var comprasFiltradas = compras.Items.FindAll(x => x.ProductoId == ProductoId);
-
-            int cantidadCompras = comprasFiltradas.Sum(x => x.Cantidad);
-
-            //todas las ventas del producto
-            var ventas = GetAllVentas();
-            var ventasFiltradas = ventas.Items.FindAll(x => x.ProductoId == ProductoId);
-
-            int cantidadVentas = ventasFiltradas.Sum(x => x.Cantidad);
-
-            stockProductoVM.Stock = cantidadCompras - cantidadVentas;            
+            
             stockProductoVM.Producto = _productoRepository.GetProductoById(ProductoId).Items.FirstOrDefault();
 
-            return stockProductoVM;
+            if (stockProductoVM.Producto != null)
+            {
+                //todas las compras del producto
+                var compras = GetAllCompras();
+                var comprasFiltradas = compras.Items.FindAll(x => x.ProductoId == ProductoId);
+
+                int cantidadCompras = comprasFiltradas.Sum(x => x.Cantidad);
+
+                //todas las ventas del producto
+                var ventas = GetAllVentas();
+                var ventasFiltradas = ventas.Items.FindAll(x => x.ProductoId == ProductoId);
+
+                int cantidadVentas = ventasFiltradas.Sum(x => x.Cantidad);
+
+                stockProductoVM.Stock = cantidadCompras - cantidadVentas;
+
+                return stockProductoVM;
+            }
+            else {
+                throw new Exception($"No existe producto con el Id {ProductoId}");
+            }
         }
 
     }

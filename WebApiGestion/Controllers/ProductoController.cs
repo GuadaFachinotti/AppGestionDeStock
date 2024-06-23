@@ -21,19 +21,27 @@ namespace WebApiGestion.Controllers
         }
 
         [HttpGet("GetProductos")]
-        public IEnumerable<Producto> GetProductos()
+        public IActionResult GetProductos()
         {
             var productos = _productoBusiness.GetAll();
 
-            return productos.Items;
+            return Ok(productos.Items);
         }
 
         [HttpGet("GetStockProductoPorId/{productoId}")]
-        public StockProductoVM GetStockProductoPorId(int productoId)
+        public IActionResult GetStockProductoPorId(int productoId)
         {
-            var resultVM = _operacionesBusiness.GetStockProducto(productoId);
+            try
+            {
+                var resultVM = _operacionesBusiness.GetStockProducto(productoId);
 
-            return resultVM;
+            return Ok(resultVM);
+            }
+            catch (Exception ex)
+            {
+                // Retorna un 500 Internal Server Error con el mensaje de la excepción
+                return StatusCode(500, $"Error: {ex.Message}");
+            }
         }
     }
 }
