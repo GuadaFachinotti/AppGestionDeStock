@@ -19,27 +19,40 @@ namespace WebApiGestion.Controllers
             _usuarioBusiness = usuarioBusiness;
         }
         [HttpGet("GenerarUsuario/{nombreUsuario}/{password}")]
-        //Esta funcion recibe como parametro nombreUsuario y password y devuelve un Hash y Salt validos para ese password
-        public Usuario GenerarUsuario(string nombreUsuario, string password)
+        // Esta función recibe como parámetro nombreUsuario y password y devuelve un Hash y Salt válidos para ese password
+        //Al utilizar de retorno IActionResult, podemos devolver diferentes tipos de respuestas HTTP, como Ok, BadRequest, NotFound, StatusCode, etc.
+        //ej 404 not found, 200 ok, 500 internal server error, 401 unauthorized
+        public IActionResult GenerarUsuario(string nombreUsuario, string password)
         {
-            //Se crea un onjeto del tipo Usuario
-            var result = new Usuario();
+            try
+            {
+                // Se crea un objeto del tipo Usuario
+                var result = new Usuario();
 
-            //Se carga el nombre
-            result.Nombre = nombreUsuario;
+                // Se carga el nombre
+                result.Nombre = nombreUsuario;
 
-            //Llamo a la funcion GenerarPasswordHash para obtener un Hash y Salt válidos para el password
-            var (hash, salt) = GenerarPasswordHash(password);
-            result.Hash = hash;
-            result.Salt = salt;
-            _usuarioBusiness.AltaUsuario(result);
+                // Llamo a la función GenerarPasswordHash para obtener un Hash y Salt válidos para el password
+                var (hash, salt) = GenerarPasswordHash(password);
+                result.Hash = hash;
+                result.Salt = salt;
 
-            return result ;
+                // Llamada al negocio para dar de alta al usuario
+                _usuarioBusiness.AltaUsuario(result);
+
+                // Retorna el resultado como un 200 OK con el usuario creado
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // Retorna un 500 Internal Server Error con el mensaje de la excepción
+                return StatusCode(500, $"Error al generar el usuario: {ex.Message}");
+            }
         }
 
         // Esta función recibe como parámetro el password y genera un hash y salt válidos para él y devuelve una tupla
         [HttpGet("GenerarPasswordHash/{password}")]
-        public (string hash, string salt) GenerarPasswordHash(string password)
+        private (string hash, string salt) GenerarPasswordHash(string password)
         {
             // Crea un array de bytes para almacenar el salt
             var saltBytes = new byte[16];

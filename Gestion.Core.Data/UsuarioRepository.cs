@@ -35,8 +35,11 @@ namespace Gestion.Core.Data
         {
             using (var db = new GestionContext(_config))
             {
-                db.Usuario.Add(usuario);
-                db.SaveChanges();
+                if(!db.Usuario.ToList().Any(x=>x.Nombre == usuario.Nombre)) { 
+                    db.Usuario.Add(usuario);
+                    db.SaveChanges();
+                }
+                else { throw new Exception("Ya existe un usuario con ese Nombre."); }
             }
         }
     }
