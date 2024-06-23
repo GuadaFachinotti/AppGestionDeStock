@@ -35,7 +35,9 @@ namespace WebApplication1.Controllers
 
         public IActionResult AgregarVenta()
         {
-            ViewData["ListaProductos"] = new SelectList(_productoBusiness.GetAll().Items, "ProductoId", "Nombre");
+            //El primer parametro es una coleccion (lista de productos), el segundo es el value de la lista (ProductoId) y el tercero es el Texto a mostar
+            //El listado se envia hacia la vista para utilizarlo en el selector de productos
+            ViewData["ListaProductos"] = new SelectList(_productoBusiness.GetAll().Items.FindAll(x=> x.Habilitado), "ProductoId", "Nombre");
             return View();
         }
 
@@ -60,7 +62,7 @@ namespace WebApplication1.Controllers
 
             if (ViewBag.Error == null) { ViewBag.Error = "Ha ocurrido un error inesperado, favor de intentar nuevamente más tarde."; };
 
-            ViewData["ListaProductos"] = new SelectList(_productoBusiness.GetAll().Items, "ProductoId", "Nombre", venta.ProductoId);
+            ViewData["ListaProductos"] = new SelectList(_productoBusiness.GetAll().Items.FindAll(x => x.Habilitado), "ProductoId", "Nombre", venta.ProductoId);
             return View("AgregarVenta", venta);
         }
     }
