@@ -21,6 +21,8 @@ namespace WebApiGestion.Controllers
         }
 
         [HttpGet("GetProductos")]
+        //Al utilizar de retorno IActionResult, podemos devolver diferentes tipos de respuestas HTTP, como Ok, BadRequest, NotFound, StatusCode, etc.
+        //ej 404 not found, 200 ok, 500 internal server error, 401 unauthorized
         public IActionResult GetProductos()
         {
             var productos = _productoBusiness.GetAll();
@@ -29,6 +31,8 @@ namespace WebApiGestion.Controllers
         }
 
         [HttpGet("GetStockProductoPorId/{productoId}")]
+        //Al utilizar de retorno IActionResult, podemos devolver diferentes tipos de respuestas HTTP, como Ok, BadRequest, NotFound, StatusCode, etc.
+        //ej 404 not found, 200 ok, 500 internal server error, 401 unauthorized
         public IActionResult GetStockProductoPorId(int productoId)
         {
             try
